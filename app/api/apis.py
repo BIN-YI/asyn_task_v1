@@ -1,7 +1,13 @@
 from flask import jsonify, request
 from . import api
-from ..tasks import long_count_tasks
+#from ..tasks import long_count_tasks
 
+#測試blueprint與postman用
+@api.route('/test_a', methods=['POST'])
+def hello_test_r():
+    return jsonify({"greeting": "Hello Api"})
+
+#這個負責啟動任務
 @api.route('/test', methods=['POST'])
 def make_test():
     data = request.get_json(force=True)
